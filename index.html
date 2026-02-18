@@ -1,131 +1,164 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>BELLA CARD - Jual SIM Card</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffc0cb; /* pink */
-            margin: 0;
-            text-align: center;
-        }
-        header {
-            background: #ff69b4;
-            color: white;
-            padding: 20px;
-        }
-        .container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 20px;
-            gap: 20px;
-        }
-        .card {
-            background: white;
-            width: 200px;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-        }
-        .card h3 {
-            margin: 10px 0;
-        }
-        .card p {
-            margin: 5px 0 15px 0;
-        }
-        button {
-            background: #0088cc; /* warna telegram */
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #006699;
-        }
-        form {
-            background: white;
-            width: 400px;
-            margin: 30px auto;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-            text-align: left;
-        }
-        form h3 {
-            text-align: center;
-        }
-        input, select {
-            width: 100%;
-            padding: 8px;
-            margin: 8px 0 16px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bella Card Store</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f5d6dc;
+    margin:0;
+}
+
+.header{
+    background:#ff6f91;
+    color:white;
+    text-align:center;
+    padding:15px;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.container{
+    width:500px;
+    margin:30px auto;
+}
+
+.products{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+
+.card{
+    background:#fff;
+    padding:15px;
+    border-radius:10px;
+    width:140px;
+    text-align:center;
+    cursor:pointer;
+    border:2px solid transparent;
+}
+
+.card.active{
+    border:2px solid #ff6f91;
+}
+
+.form-box{
+    background:white;
+    padding:20px;
+    margin-top:20px;
+    border-radius:10px;
+}
+
+input, select{
+    width:100%;
+    padding:8px;
+    margin:5px 0 15px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+.total{
+    background:#ffd1dc;
+    padding:10px;
+    text-align:center;
+    border-radius:8px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#ff6f91;
+    color:white;
+    border:none;
+    border-radius:25px;
+    font-weight:bold;
+    cursor:pointer;
+}
+</style>
 </head>
+
 <body>
 
-<header>
-    <h1>BELLA CARD</h1>
-    <p>Jual SIM Card By.U, Telkomsel & Database</p>
-</header>
+<div class="header">🌸 BELLA CARD STORE 🌸</div>
 
 <div class="container">
-    <div class="card">
-        <h3>SIM Card By.U</h3>
-        <p>Harga: 80 Baht / unit</p>
-        <a href="https://t.me/bellatan17" target="_blank">
-            <button>Order via Telegram</button>
-        </a>
-    </div>
 
-    <div class="card">
-        <h3>SIM Card Telkomsel</h3>
-        <p>Harga: 100 Baht / unit</p>
-        <a href="https://t.me/bellatan17" target="_blank">
-            <button>Order via Telegram</button>
-        </a>
-    </div>
+<h3 style="text-align:center;">Pilih Produk</h3>
 
-    <div class="card">
-        <h3>Database 1000</h3>
-        <p>Harga: Rp 200.000 / pcs</p>
-        <a href="https://t.me/bellatan17" target="_blank">
-            <button>Order via Telegram</button>
-        </a>
+<div class="products">
+    <div class="card active" onclick="selectProduct('Simcard Tsel',100,this)">
+        <b>Simcard Tsel</b><br>
+        100 Baht / pcs
+    </div>
+    <div class="card" onclick="selectProduct('Simcard Byu',80,this)">
+        <b>Simcard Byu</b><br>
+        80 Baht / pcs
+    </div>
+    <div class="card" onclick="selectProduct('Database 1000',200000,this)">
+        <b>Database 1000</b><br>
+        Rp 200.000
     </div>
 </div>
 
-<!-- Form Pemesanan -->
-<form>
-    <h3>Form Pemesanan</h3>
-    <label for="name">Nama Lengkap</label>
-    <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap" required>
+<div class="form-box">
+    <h3>Detail Pemesanan</h3>
 
-    <label for="contact">WA / Telegram</label>
-    <input type="text" id="contact" name="contact" placeholder="08123456789 / @username" required>
+    Produk:
+    <input type="text" id="produk" value="Simcard Tsel" readonly>
 
-    <label for="product">Pilih Produk</label>
-    <select id="product" name="product" required>
-        <option value="">--Pilih Produk--</option>
-        <option value="byu">SIM Card By.U - 80 Baht/unit</option>
-        <option value="telkomsel">SIM Card Telkomsel - 100 Baht/unit</option>
-        <option value="database">Database 1000 - Rp 200.000/pcs</option>
+    Jumlah (Pcs):
+    <input type="number" id="jumlah" value="1" min="1" onchange="hitungTotal()">
+
+    <div class="total" id="total">
+        Total: 100
+    </div>
+
+    Nama Lengkap:
+    <input type="text" placeholder="Nama Anda">
+
+    WA / Telegram:
+    <input type="text" placeholder="@username / No WA">
+
+    Metode Pembayaran:
+    <select>
+        <option>-- Pilih Pembayaran --</option>
+        <option>Transfer Bank</option>
+        <option>E-Wallet</option>
     </select>
 
-    <label for="payment">Metode Pembayaran</label>
-    <select id="payment" name="payment" required>
-        <option value="">--Pilih Metode--</option>
-        <option value="ovo">OVO</option>
-        <option value="dana">Dana</option>
-        <option value="transfer">Transfer Bank</option>
-    </select>
+    <button>KIRIM PESANAN</button>
+</div>
 
-    <button type="submit">Kirim Pesanan</button>
-</form>
+</div>
+
+<script>
+let harga = 100;
+
+function selectProduct(nama, price, el){
+    harga = price;
+    document.getElementById("produk").value = nama;
+
+    document.querySelectorAll(".card").forEach(card=>{
+        card.classList.remove("active");
+    });
+
+    el.classList.add("active");
+
+    hitungTotal();
+}
+
+function hitungTotal(){
+    let jumlah = document.getElementById("jumlah").value;
+    let total = jumlah * harga;
+    document.getElementById("total").innerHTML = "Total: " + total;
+}
+</script>
 
 </body>
 </html>

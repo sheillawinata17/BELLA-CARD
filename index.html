@@ -5,7 +5,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #ffc0cb;
+            background-color: #ffc0cb; /* pink */
             margin: 0;
             text-align: center;
         }
@@ -15,15 +15,24 @@
             padding: 20px;
         }
         .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             padding: 20px;
+            gap: 20px;
         }
         .card {
             background: white;
-            width: 280px;
-            margin: 20px auto;
+            width: 200px;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        .card h3 {
+            margin: 10px 0;
+        }
+        .card p {
+            margin: 5px 0 15px 0;
         }
         button {
             background: #0088cc; /* warna telegram */
@@ -36,6 +45,25 @@
         button:hover {
             background: #006699;
         }
+        form {
+            background: white;
+            width: 400px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            text-align: left;
+        }
+        form h3 {
+            text-align: center;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0 16px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
     </style>
 </head>
 <body>
@@ -46,10 +74,9 @@
 </header>
 
 <div class="container">
-
     <div class="card">
         <h3>SIM Card By.U</h3>
-        <p>Harga: 80 Baht / pcs</p>
+        <p>Harga: 80 Baht / unit</p>
         <a href="https://t.me/bellatan17" target="_blank">
             <button>Order via Telegram</button>
         </a>
@@ -57,7 +84,7 @@
 
     <div class="card">
         <h3>SIM Card Telkomsel</h3>
-        <p>Harga: 100 Baht / pcs</p>
+        <p>Harga: 100 Baht / unit</p>
         <a href="https://t.me/bellatan17" target="_blank">
             <button>Order via Telegram</button>
         </a>
@@ -65,13 +92,40 @@
 
     <div class="card">
         <h3>Database 1000</h3>
-        <p>Harga: Rp 200.000</p>
+        <p>Harga: Rp 200.000 / pcs</p>
         <a href="https://t.me/bellatan17" target="_blank">
             <button>Order via Telegram</button>
         </a>
     </div>
-
 </div>
+
+<!-- Form Pemesanan -->
+<form>
+    <h3>Form Pemesanan</h3>
+    <label for="name">Nama Lengkap</label>
+    <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap" required>
+
+    <label for="contact">WA / Telegram</label>
+    <input type="text" id="contact" name="contact" placeholder="08123456789 / @username" required>
+
+    <label for="product">Pilih Produk</label>
+    <select id="product" name="product" required>
+        <option value="">--Pilih Produk--</option>
+        <option value="byu">SIM Card By.U - 80 Baht/unit</option>
+        <option value="telkomsel">SIM Card Telkomsel - 100 Baht/unit</option>
+        <option value="database">Database 1000 - Rp 200.000/pcs</option>
+    </select>
+
+    <label for="payment">Metode Pembayaran</label>
+    <select id="payment" name="payment" required>
+        <option value="">--Pilih Metode--</option>
+        <option value="ovo">OVO</option>
+        <option value="dana">Dana</option>
+        <option value="transfer">Transfer Bank</option>
+    </select>
+
+    <button type="submit">Kirim Pesanan</button>
+</form>
 
 </body>
 </html>
